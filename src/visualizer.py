@@ -31,22 +31,20 @@ def plot_sholl_profile(csv_path: str, output_path: str):
     ))
 
     # Professional Layout
+# Professional Layout with Explicit Colors
     fig.update_layout(
-        title={
-            'text': "Sholl Analysis Profile",
-            'y':0.9,
-            'x':0.5,
-            'xanchor': 'center',
-            'yanchor': 'top'
-        },
-        xaxis_title="Distance from Soma (Radius)",
-        yaxis_title="Number of Intersections",
-        template="plotly_dark", # Matches your preferred dark aesthetic
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        font=dict(family="Courier New, monospace", size=14),
+        title={'text': "Sholl Analysis Profile", 'x': 0.5},
+        xaxis=dict(title="Distance from Soma (Radius)", showgrid=True, gridcolor='rgba(255,255,255,0.1)', color='white'),
+        yaxis=dict(title="Number of Intersections", showgrid=True, gridcolor='rgba(255,255,255,0.1)', color='white'),
+        template="plotly_dark",
+        paper_bgcolor='#0a0a0a', # Solid dark background instead of transparent
+        plot_bgcolor='#0a0a0a',
+        font=dict(family="Courier New, monospace", size=14, color='white'),
         hovermode="x unified"
     )
+    
+    # Force hover text to show up clearly
+    fig.update_traces(hovertemplate='Radius: %{x}µm<br>Intersections: %{y}<extra></extra>')
 
     # Save as interactive HTML
     fig.write_html(output_path)
