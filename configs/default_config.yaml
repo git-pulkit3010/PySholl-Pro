@@ -1,0 +1,10 @@
+analysis:
+  start_radius: 10
+  step_size: 20
+  padding: 50
+
+paths:
+  raw_data: "data/raw/cnic_001.CNG.swc"
+  processed_mask: "data/processed/skeleton_mask.png"
+  results_csv: "data/results/sholl_data.csv"
+  report_html: "reports/figures/sholl_interactive.html"
